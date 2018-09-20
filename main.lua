@@ -69,7 +69,7 @@ local function toHtml(msg)
 	end
 
 	msg = msg:gsub("%|H.-%|h(.-)%|h", "%1")
-	msg, openTags = msg:gsub("%|c..(......)", "<span style=\"color: #%1\">")
+	msg, openTags = msg:gsub("%|c..(......)", "<span style=\"color: #%1;\">")
 	msg, closeTags = msg:gsub("%|r", "</span>")
 	while closeTags < openTags do
 		msg = msg .. "</span>"
@@ -125,7 +125,7 @@ end
 local function writeHtmlStart(file)
 	local text = "<!DOCTYPE html>\n"
 	text = text .. "<html lang=\"en\"><head><meta charset=\"UTF-8\"><title>WOW LUA API</title>\n"
-	text = text .. "<style> body {font-family: monospace; background-color: black; color: white; white-space: pre;} </style></head><body>\n"
+	text = text .. "<style> body {font-family: monospace; background-color: black; color: white; white-space: pre;} </style></head><body><div>\n"
 	file:write(text .. "\n")
 end
 
@@ -133,5 +133,5 @@ end
 resultFile = assert(io.open(EXTRACT_WOW_API_DOCS.HtmlFile, "wb"))
 writeHtmlStart(resultFile)
 parseSystems()
-resultFile:write("\n</body></html>")
+resultFile:write("\n</div></body></html>")
 resultFile:close()
