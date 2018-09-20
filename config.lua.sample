@@ -1,0 +1,4 @@
+
+EXTRACT_WOW_API_DOCS = {}
+EXTRACT_WOW_API_DOCS.PathToCode = "/home/me/BlizzardInterfaceCode-master/Interface/AddOns/Blizzard_APIDocumentation/"
+EXTRACT_WOW_API_DOCS.HtmlFile = "/var/www/WowApi.html"
