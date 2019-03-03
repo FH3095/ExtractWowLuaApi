@@ -46,6 +46,7 @@ end
 local function readLuaFilesFromToc(tocFile)
 	local files = {}
 	for line in io.lines(tocFile) do
+		line = line:match("^%s*(.-)%s*$")
 		if line:match("^[A-Za-z0-9].*lua$") then
 			table.insert(files, line:sub(0,-5))
 		end
