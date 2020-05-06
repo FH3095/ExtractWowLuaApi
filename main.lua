@@ -24,7 +24,7 @@ local function strsplit(delimiter,text)
     delim_from, delim_to = string.find( text, delimiter, from  )
   end
   table.insert( result, string.sub( text, from  ) )
-  return unpack(result)
+  return table.unpack(result)
 end
 
 function Mixin(object, ...)
