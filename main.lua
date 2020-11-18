@@ -12,6 +12,14 @@ local function nilChatFrameAddMessage()
 	error("Cant use AddMessage right now")
 end
 DEFAULT_CHAT_FRAME.AddMessage = nilChatFrameAddMessage
+DEFAULT_CHAT_FRAME.SetMaxLines = function() end
+
+-- Hack to fix NIL-Exception in CurrencyConstantsDocumentation.lua
+Enum = {}
+Enum.PlayerCurrencyFlagsDbFlags = {
+       InBackpack = 4,
+       UnusedInUI = 8,
+}
 
 
 local function strsplit(delimiter,text)
